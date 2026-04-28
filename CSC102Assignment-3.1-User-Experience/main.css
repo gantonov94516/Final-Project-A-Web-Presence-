@@ -1,0 +1,43 @@
+/* Created by Gleb Antonov (Firey) */
+/* CSS styles for the website */
+
+/* 1. Body Properties */
+body {
+    background-color: #000000; /* Pure black background */
+    color: #FFD700; /* Gold text color */
+}
+
+/* 2. Nav Properties */
+nav {
+    height: 600px;
+    width: 200px;
+    float: left;
+    padding: 5px;
+    line-height: 30px;
+}
+
+/* 3. Footer Properties */
+footer {
+    text-align: center;
+    margin-right: 200px;
+}
+
+/* 4. #memeImage Properties */
+#memeImage {
+    margin-right: 200px;
+    
+    /* Custom Gold Theme styles */
+    width: 600px; /* Instructor said width is optional, so we keep yours big */
+    border: 3px solid #FFD700;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+/* 5. Header Properties */
+h1 {
+    text-align: center;
+    
+    /* Custom Gold Theme styles */
+    border-bottom: 3px solid #FFD700;
+    padding-bottom: 10px;
+}

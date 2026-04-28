@@ -1,0 +1,184 @@
+/* Created by Gleb Antonov (Firey)
+
+/ Styles for The Rune Mirror - Palindrome Checker
+
+/* Import a mystical Google Font for the creative element */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700&display=swap');
+
+/* Styles the main body of the page */
+body {
+    /* Deep purple/black background for a mystical vibe */
+    background-color: #0d0d1a;
+    /* Sets the default text color to a soft lavender */
+    color: #c9b8f0;
+    /* Uses the imported fantasy-style font */
+    font-family: 'Cinzel', serif;
+    /* Centers content horizontally */
+    text-align: center;
+    /* Removes default body margin */
+    margin: 0;
+    /* Adds padding around the edges */
+    padding: 20px;
+    /* Sets a minimum height to fill the screen */
+    min-height: 100vh;
+}
+
+/* Styles the decorative header banner */
+#headerBanner {
+    /* Flexbox to put the runes and title on the same line */
+    display: flex;
+    /* Centers the items horizontally */
+    justify-content: center;
+    /* Aligns items vertically in the middle */
+    align-items: center;
+    /* Adds space between the runes and the title */
+    gap: 20px;
+}
+
+/* Styles the rune emoji decorations */
+.rune {
+    /* Makes the emoji symbols larger */
+    font-size: 2.5em;
+}
+
+/* Styles the main H1 heading */
+h1 {
+    /* Gold color for the title */
+    color: #c9a227;
+    /* Makes the font bigger */
+    font-size: 2.8em;
+    /* Removes default margins */
+    margin: 0;
+    /* Adds a glowing text effect */
+    text-shadow: 0 0 10px #c9a227;
+}
+
+/* Styles the subtitle paragraph */
+#subtitle {
+    /* Makes the subtitle text italic */
+    font-style: italic;
+    /* Fades the color slightly */
+    color: #9b89c4;
+    /* Adds some spacing below */
+    margin-bottom: 30px;
+}
+
+/* Styles the main card container */
+#mirrorCard {
+    /* Dark semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Max width so it doesn't stretch too wide */
+    max-width: 600px;
+    /* Centers the card horizontally */
+    margin: 0 auto;
+    /* Padding inside the card */
+    padding: 40px;
+    /* Rounded corners */
+    border-radius: 15px;
+    /* Glowing purple border */
+    border: 2px solid #7b2ff7;
+    /* Outer glow effect */
+    box-shadow: 0 0 25px rgba(123, 47, 247, 0.5);
+}
+
+/* Styles the text input box */
+input[type="text"] {
+    /* Dark input background */
+    background-color: #1a1a2e;
+    /* Purple border to match theme */
+    border: 2px solid #7b2ff7;
+    /* Light text inside the box */
+    color: #ffffff;
+    /* Padding inside the input */
+    padding: 12px;
+    /* Adds a gap below the input */
+    margin: 15px 0;
+    /* Makes it take up most of the card width */
+    width: 85%;
+    /* Font size for readability */
+    font-size: 16px;
+    /* Rounds the corners */
+    border-radius: 8px;
+    /* Matches the page font */
+    font-family: 'Cinzel', serif;
+}
+
+/* Styles the submit button */
+#checkBtn {
+    /* Purple background matching the theme */
+    background-color: #7b2ff7;
+    /* White text for contrast */
+    color: white;
+    /* Larger font size */
+    font-size: 18px;
+    /* Padding inside the button */
+    padding: 12px 30px;
+    /* Removes default border */
+    border: none;
+    /* Makes the mouse a clicking hand */
+    cursor: pointer;
+    /* Rounds the corners */
+    border-radius: 8px;
+    /* Smooth hover transition */
+    transition: 0.3s;
+    /* Matches the page font */
+    font-family: 'Cinzel', serif;
+    /* Adds a gap above */
+    margin-top: 10px;
+}
+
+/* Changes button color when hovered */
+#checkBtn:hover {
+    /* Lighter purple on hover */
+    background-color: #9b4dff;
+    /* Glowing effect on hover */
+    box-shadow: 0 0 15px rgba(123, 47, 247, 0.8);
+}
+
+/* Styles the warning message div */
+#warningMsg {
+    /* Red color for warnings */
+    color: #ff4444;
+    /* Makes it bold so it stands out */
+    font-weight: bold;
+    /* Adds space above */
+    margin-top: 15px;
+}
+
+/* Styles the palindrome result message div */
+#resultMsg {
+    /* Makes result text bigger */
+    font-size: 1.5em;
+    /* Adds space above */
+    margin-top: 20px;
+    /* Bold for emphasis */
+    font-weight: bold;
+}
+
+/* Styles the detail message showing cleaned/reversed strings */
+#detailMsg {
+    /* Slightly smaller than the result */
+    font-size: 0.9em;
+    /* Faded color for secondary info */
+    color: #9b89c4;
+    /* Adds space above */
+    margin-top: 10px;
+    /* Italic for a secondary look */
+    font-style: italic;
+}
+
+/* Styles the animated footer bar */
+#footerBar {
+    /* Gold text for the footer */
+    color: #c9a227;
+    /* Adds space above */
+    margin-top: 40px;
+    /* Slightly smaller font */
+    font-size: 0.85em;
+    /* Italic style */
+    font-style: italic;
+    /* Faint top border line */
+    border-top: 1px solid #7b2ff7;
+    /* Padding above the text */
+    padding-top: 10px;
+}

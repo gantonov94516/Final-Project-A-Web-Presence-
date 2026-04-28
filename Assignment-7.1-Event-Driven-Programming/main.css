@@ -1,0 +1,90 @@
+/* Created by Gleb Antonov (Firey) */
+/* External CSS stylesheet */
+
+/* Styles the main body of the webpage */
+body {
+    /* Sets a dark background color */
+    background-color: #1e1e1e;
+    /* Sets the font style */
+    font-family: 'Courier New', Courier, monospace;
+    /* Removes default margins */
+    margin: 0;
+    /* Hides scrollbars so the bouncing image doesn't stretch the page */
+    overflow: hidden;
+}
+
+/* Styles the box that holds the buttons and text */
+#controlPanel {
+    /* Centers the text inside the box */
+    text-align: center;
+    /* Adds a background color with slight transparency */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Sets the text color to hacker green */
+    color: #00ff41;
+    /* Adds padding around the inside of the box */
+    padding: 20px;
+    /* Puts the box on top of everything else */
+    z-index: 100;
+    /* Positions the box relative to its normal spot */
+    position: relative;
+    /* Adds a glowing green border under the box */
+    border-bottom: 2px solid #00ff41;
+}
+
+/* Styles both the Start and Stop buttons */
+button {
+    /* Makes the text larger */
+    font-size: 18px;
+    /* Adds space inside the buttons */
+    padding: 10px 20px;
+    /* Adds space outside the buttons */
+    margin: 10px;
+    /* Makes the mouse look like a clicking finger */
+    cursor: pointer;
+    /* Makes the button text bold */
+    font-weight: bold;
+    /* Rounds the corners of the buttons */
+    border-radius: 5px;
+}
+
+/* Specific styling for the Start button */
+#startBtn {
+    /* Sets the start button to green */
+    background-color: #2ecc71;
+    /* Sets the text to white */
+    color: white;
+}
+
+/* Specific styling for the Stop button */
+#stopBtn {
+    /* Sets the stop button to red */
+    background-color: #e74c3c;
+    /* Sets the text to white */
+    color: white;
+}
+
+/* Styling for when buttons are disabled */
+button:disabled {
+    /* Makes disabled buttons grey */
+    background-color: #555555 !important;
+    /* Changes cursor to show it cannot be clicked */
+    cursor: not-allowed;
+    /* Makes the button look faded out */
+    opacity: 0.5;
+}
+
+/* Styles the moving meme image */
+#memeImage {
+    /* position: absolute allows JavaScript to move it anywhere on screen */
+    position: absolute;
+    /* Sets the starting width */
+    width: 250px;
+    /* Sets the starting top position */
+    top: 200px;
+    /* Sets the starting left position */
+    left: 10px;
+    /* pointer-events: none stops the image from blocking button clicks */
+    pointer-events: none;
+    /* z-index: 200 keeps the meme on top of the control panel */
+    z-index: 200;
+}

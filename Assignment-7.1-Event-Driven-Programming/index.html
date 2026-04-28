@@ -1,0 +1,63 @@
+<!-- Created by Gleb Antonov (Firey) -->
+<!-- Tells the browser we are using HTML5 -->
+<!DOCTYPE html>
+
+<!-- The opening tag for the HTML document -->
+<html lang="en">
+
+<!-- The head section for metadata and links -->
+<head>
+    
+    <!-- Character encoding to make sure text displays correctly -->
+    <meta charset="UTF-8">
+    
+    <!-- The title that shows up in the browser tab -->
+    <title>Bouncing Meme Generator</title>
+    
+    <!-- Links our separate CSS file for styling -->
+    <link rel="stylesheet" href="main.css">
+
+<!-- Closes the head section -->
+</head>
+
+<!-- The body section where the visible content lives -->
+<body>
+
+    <!-- A container box for the controls -->
+    <div id="controlPanel">
+
+        <!-- Main heading for the page -->
+        <h1>Meme Control Panel</h1>
+
+        <!-- Status message area to satisfy the innerHTML requirement -->
+        <p id="statusMsg">Status: Waiting for input...</p>
+
+        <!-- Form tag included to satisfy the "MUST use form" requirement -->
+        <!-- onsubmit="return false" prevents the page from reloading -->
+        <form onsubmit="return false;">
+
+            <!-- The Start button wired with onClick to trigger the JS function -->
+            <!-- I give it an ID so JS can enable/disable it -->
+            <button id="startBtn" onclick="clickStart();">START MOVING</button>
+
+            <!-- The Stop button wired with onClick to trigger the JS function -->
+            <!-- I set it to 'disabled' by default because the image isn't moving yet -->
+            <button id="stopBtn" onclick="clickStop();" disabled>STOP MOVING</button>
+
+        <!-- Closes the form tag -->
+        </form>
+
+    <!-- Closes the control panel div -->
+    </div>
+
+    <!-- The meme image that will move around the screen -->
+    <img id="memeImage" src="this-is-fine.gif" alt="This is fine meme">
+
+    <!-- Links the separate JavaScript file so the code runs -->
+    <script src="code.js"></script>
+
+<!-- Closes the body section -->
+</body>
+
+<!-- Closes the HTML document -->
+</html>

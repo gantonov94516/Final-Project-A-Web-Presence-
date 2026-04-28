@@ -1,0 +1,201 @@
+/* Created by Gleb Antonov (Firey) */
+/* This file styles the GPU price comparison table page */
+
+/* This imports a clean modern font from Google */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* This styles the entire page body */
+body {
+    /* Dark background for a tech aesthetic */
+    background-color: #0f1117;
+    /* Light text color for contrast */
+    color: #e2e8f0;
+    /* Sets the font across the whole page */
+    font-family: 'Inter', sans-serif;
+    /* Removes default body margin */
+    margin: 0;
+    /* Adds padding around the page edges */
+    padding: 20px;
+}
+
+/* This styles the main wrapper div */
+#pageWrapper {
+    /* Sets a max width so it doesn't stretch too wide on big monitors */
+    max-width: 1200px;
+    /* Centers the wrapper horizontally */
+    margin: 0 auto;
+}
+
+/* This styles the main page heading */
+h1 {
+    /* Gold accent color for the heading */
+    color: #ffd700;
+    /* Centers the text */
+    text-align: center;
+    /* Makes the font larger */
+    font-size: 2rem;
+    /* Adds space below the heading */
+    margin-bottom: 8px;
+}
+
+/* This styles the subtitle paragraph */
+#subtitle {
+    /* Centers the subtitle */
+    text-align: center;
+    /* Faded text color for secondary info */
+    color: #94a3b8;
+    /* Adds space below the subtitle */
+    margin-bottom: 28px;
+    /* Limits the subtitle width so it doesn't stretch too wide */
+    max-width: 800px;
+    /* Centers the subtitle block itself */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* This styles the container div that holds the table */
+#tableContainer {
+    /* Allows the table to scroll sideways on small screens */
+    overflow-x: auto;
+}
+
+/* This styles the table itself */
+table {
+    /* Makes the table fill the full container width */
+    width: 100%;
+    /* Removes double borders between cells */
+    border-collapse: collapse;
+    /* Adds a subtle shadow around the table */
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    /* Rounds the outer corners */
+    border-radius: 10px;
+    /* Clips the rounded corners so they show */
+    overflow: hidden;
+}
+
+/* This styles the table header row */
+thead tr {
+    /* Dark indigo header background */
+    background-color: #1e1b4b;
+    /* Gold text in the header */
+    color: #ffd700;
+    /* Aligns text to the left */
+    text-align: left;
+}
+
+/* This styles each header cell */
+th {
+    /* Adds padding inside each header cell */
+    padding: 14px 16px;
+    /* Makes header text slightly smaller */
+    font-size: 0.82rem;
+    /* Converts header text to uppercase */
+    text-transform: uppercase;
+    /* Adds letter spacing for readability */
+    letter-spacing: 0.07em;
+}
+
+/* This styles each regular table cell */
+td {
+    /* Adds padding inside each data cell */
+    padding: 12px 16px;
+    /* Adds a faint line between rows */
+    border-bottom: 1px solid #1e293b;
+    /* Sets the font size */
+    font-size: 0.9rem;
+}
+
+/* This styles even-numbered body rows for zebra striping */
+tbody tr:nth-child(even) {
+    background-color: #161b2e;
+}
+
+/* This styles odd-numbered body rows */
+tbody tr:nth-child(odd) {
+    background-color: #0f1117;
+}
+
+/* This adds a hover highlight effect to rows */
+tbody tr:hover {
+    background-color: #1e3a5f;
+    transition: background-color 0.15s ease;
+}
+
+/* This styles the price difference cell when the GPU is above MSRP */
+.priceAbove {
+    /* Red color for above MSRP */
+    color: #f87171;
+    font-weight: 700;
+}
+
+/* This styles the price difference cell when the GPU is below MSRP */
+.priceBelow {
+    /* Green color for below MSRP */
+    color: #4ade80;
+    font-weight: 700;
+}
+
+/* This styles the price difference cell when the GPU is exactly at MSRP */
+.priceAt {
+    /* Yellow color for at MSRP */
+    color: #fbbf24;
+    font-weight: 700;
+}
+
+/* This styles the RECOMMENDED badge cells */
+.recommended {
+    color: #34d399;
+    font-weight: 700;
+}
+
+/* This styles the legend row of color pills */
+#legend {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+/* This styles each colored pill badge in the legend */
+.pill {
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* This gives the "Above MSRP" pill a red tint */
+.pill.above {
+    background-color: rgba(248, 113, 113, 0.15);
+    color: #f87171;
+    border: 1px solid #f87171;
+}
+
+/* This gives the "Below MSRP" pill a green tint */
+.pill.below {
+    background-color: rgba(74, 222, 128, 0.15);
+    color: #4ade80;
+    border: 1px solid #4ade80;
+}
+
+/* This gives the "At MSRP" pill a yellow tint */
+.pill.atmrsp {
+    background-color: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border: 1px solid #fbbf24;
+}
+
+/* This styles the row count paragraph */
+#rowCount {
+    text-align: center;
+    color: #64748b;
+    margin-top: 12px;
+    font-size: 0.82rem;
+}
+
+/* This makes the page look better on small screens */
+@media (max-width: 700px) {
+    h1 { font-size: 1.4rem; }
+    th, td { padding: 10px 10px; font-size: 0.8rem; }
+}

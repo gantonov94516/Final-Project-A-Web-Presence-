@@ -1,0 +1,96 @@
+<!-- Created by Gleb Antonov (Firey) -->
+<!-- This tells the browser we are using HTML5 -->
+<!DOCTYPE html>
+
+<!-- This is the opening HTML tag -->
+<html lang="en">
+
+<!-- This is the head section where settings and styles live -->
+<head>
+
+    <!-- Sets the character encoding so special characters display correctly -->
+    <meta charset="UTF-8">
+
+    <!-- This is what shows in the browser tab -->
+    <title>FCA Access Terminal</title>
+
+       <!-- Links the external CSS file for all styling -->
+    <link rel="stylesheet" href="strings.css">
+
+<!-- End of the head section -->
+</head>
+
+<!-- This is the body where all the visible stuff lives -->
+<body>
+
+    <!-- This is the main container box for the login form -->
+    <div id="loginContainer">
+
+        <!-- A big pretzel emoji as the "Ferengi" logo for fun -->
+        <div class="ferengi-logo">🥨</div>
+
+        <!-- Main title heading -->
+        <h1>FCA Database Access</h1>
+
+        <!-- Subtitle description -->
+        <p>Restricted to Grand Nagus Level Clearance</p>
+
+        <!-- THE FORM: all inputs are inside ONE form with ONE submit button -->
+        <!-- onsubmit runs our JS function and return false stops page reload -->
+        <form onsubmit="validateForm(); return false;">
+
+            <!-- Label for the first name box -->
+            <label for="fName">First Name:</label><br>
+
+            <!-- Input box for the user's first name -->
+            <input type="text" id="fName" placeholder="Enter First Name"><br>
+
+            <!-- Label for the last name box -->
+            <label for="lName">Last Name:</label><br>
+
+            <!-- Input box for the user's last name -->
+            <input type="text" id="lName" placeholder="Enter Last Name"><br>
+
+            <!-- Label for the zip code box -->
+            <label for="zipCode">Access Code (Zip):</label><br>
+
+            <!-- Input box for zip code - type="text" preserves leading zeros like 01234 -->
+            <input type="text" id="zipCode" placeholder="5-Digit Code"><br>
+
+            <!-- The one submit button for the whole form -->
+            <button type="submit">Verify &amp; Access</button>
+
+        <!-- End of form -->
+        </form>
+
+        <!-- This shows warning messages when inputs are wrong -->
+        <div id="warningMsg"></div>
+
+        <!-- This is the secret message area - hidden until the user passes validation -->
+        <div id="secretMessage">
+
+            <!-- Access granted heading -->
+            <h2>ACCESS GRANTED</h2>
+
+            <!-- The secret message  -->
+            <p style="font-size: 1.2em; font-style: italic; color: #00FF00;">
+                "Rule of Acquisition #1: Once you have their money, you never give it back."
+            </p>
+
+            <!-- Personalised welcome using the user's name -->
+            <p>Welcome, <span id="userFullName"></span>.</p>
+
+        <!-- End of secret message div -->
+        </div>
+
+    <!-- End of login container div -->
+    </div>
+
+    <!-- Links the external JavaScript file so it can run on this page -->
+    <script src="strings.js"></script>
+
+<!-- End of body -->
+</body>
+
+<!-- End of HTML document -->
+</html>

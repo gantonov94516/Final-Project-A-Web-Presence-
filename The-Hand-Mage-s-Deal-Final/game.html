@@ -1,0 +1,83 @@
+<!-- Created by Gleb Antonov (Firey) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Hand Mage's Deal</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <!-- Name Entry Screen -->
+    <div id="nameScreen" class="screen">
+        <h1>The Hand Mage's Deal</h1>
+        <p id="subtitle">Three cards. One life. Two deaths. Make your deal.</p>
+        
+        <!-- Form for name input -->
+        <form onsubmit="submitName(); return false;" id="nameForm">
+            <label for="playerName">Enter Your Name:</label>
+            <div class="input-group">
+                <span class="icon">👤</span>
+                <input type="text" id="playerName" placeholder="e.g. Quark" required maxlength="20">
+            </div>
+            <button type="submit" id="enterBtn">Begin the Deal</button>
+        </form>
+        
+        <!-- Validation message area -->
+        <div id="nameWarning"></div>
+    </div>
+
+    <!-- Main Game Screen -->
+    <div id="gameScreen" class="screen">
+        <!-- Player Stats Bar -->
+        <div id="statsBar">
+            <span class="stat"><strong>Player:</strong> <span id="playerNameDisplay"></span></span>
+            <span class="stat"><strong>Wins:</strong> <span id="wins">0</span></span>
+            <span class="stat"><strong>Losses:</strong> <span id="losses">0</span></span>
+            <span class="stat"><strong>Streak:</strong> <span id="streak">0</span></span>
+        </div>
+
+        <!-- Dialogue Box -->
+        <div id="dialogueBox">
+            The Hand Mage watches you quietly. "When you are ready, begin the deal."
+        </div>
+        
+        <!-- Buttons -->
+        <div id="buttonRow">
+            <button id="startButton" type="button">Begin the Deal</button>
+            <button id="restartButton" type="button" disabled>Reset the Table</button>
+        </div>
+        
+        <!-- Card Visuals (3D Flip) -->
+        <div id="cardArea">
+            <!-- Card 1 -->
+            <div class="card-container" id="card1Container" onclick="chooseCard(1)" role="button" tabindex="0">
+                <div class="card front">❓</div>
+                <div class="card back hidden" id="card1Result"></div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card-container" id="card2Container" onclick="chooseCard(2)" role="button" tabindex="0">
+                <div class="card front">❓</div>
+                <div class="card back hidden" id="card2Result"></div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card-container" id="card3Container" onclick="chooseCard(3)" role="button" tabindex="0">
+                <div class="card front">❓</div>
+                <div class="card back hidden" id="card3Result"></div>
+            </div>
+        </div>
+        
+        <!-- Final Result -->
+        <div id="resultMessage"></div>
+
+        <!-- Hidden Audio Elements -->
+        <audio id="startSound"><source src="start.mp3" type="audio/mpeg"></audio>
+        <audio id="winSound"><source src="win.mp3" type="audio/mpeg"></audio>
+        <audio id="loseSound"><source src="lose.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <!-- Link External JavaScript -->
+    <script src="code.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/* Created by Gleb Antonov (Firey) */
+/* CSS styles for the FCA Access Terminal */
+
+/* Makes the background black and text gold, centers everything */
+body {
+    background-color: #000000;
+    color: #FF9900;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+/* The main box that holds the whole login form */
+#loginContainer {
+    border: 10px solid #993300;
+    border-radius: 25px 0 25px 0;
+    padding: 40px;
+    background-color: #1a1a1a;
+    width: 500px;
+    box-shadow: 0 0 20px #FF9900;
+}
+
+/* Makes the big title text gold and adds a line underneath */
+h1 {
+    color: #FFD700;
+    text-transform: uppercase;
+    border-bottom: 2px solid #FF9900;
+    padding-bottom: 10px;
+}
+
+/* Styles each text input box */
+input[type="text"] {
+    background-color: #333;
+    border: 2px solid #FF9900;
+    color: #ffffff;
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Styles the submit button */
+button {
+    background-color: #993300;
+    color: #FFD700;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+/* Changes button color on mouse hover */
+button:hover {
+    background-color: #CC4400;
+    box-shadow: 0 0 10px #FFD700;
+}
+
+/* This is where warning messages appear */
+#warningMsg {
+    color: #FF0000;
+    font-weight: bold;
+    margin-top: 15px;
+    min-height: 20px;
+}
+
+/* The secret message box - hidden until inputs are valid */
+#secretMessage {
+    display: none;
+    margin-top: 30px;
+    border-top: 2px dashed #FF9900;
+    padding-top: 20px;
+    animation: fadeIn 1s;
+}
+
+/* Fade-in animation for the secret message appearing */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Big pretzel logo at the top because why not */
+.ferengi-logo {
+    font-size: 50px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,244 @@
+/* Created by Gleb Antonov (Firey) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Quicksand:wght@400;600&display=swap');
+
+body {
+    background: radial-gradient(circle at top, #2d1247 0%, #12061d 45%, #050308 100%);
+    color: #f4e8ff;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === SCREEN STYLING === */
+.screen {
+    width: 95%;
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+#gameScreen {
+    background-color: rgba(10, 8, 18, 0.92);
+    box-shadow: 0 0 35px rgba(182, 120, 255, 0.4);
+}
+
+/* === NAME FORM STYLING === */
+#nameForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 360px;
+    margin: 20px auto;
+}
+
+label {
+    text-align: center;
+    font-weight: bold;
+    color: #ffd97d;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 4px 16px;
+    border: 2px solid #7b2ff7;
+}
+
+.icon {
+    margin-right: 12px;
+    font-size: 20px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 8px 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#enterBtn {
+    background: linear-gradient(90deg, #7d3cff, #b678ff);
+    color: white;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+#enterBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(125, 60, 255, 0.4);
+}
+
+/* === STATS BAR === */
+#statsBar {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(90deg, #7d3cff, #b678ff);
+    border-radius: 12px;
+    padding: 12px 24px;
+    margin-bottom: 24px;
+}
+
+.stat {
+    font-size: 0.9rem;
+}
+
+/* === DIALOGUE & RESULT === */
+#dialogueBox {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 4px solid #ffd97d;
+    border-radius: 14px;
+    padding: 18px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+#resultMessage {
+    min-height: 48px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    margin-top: 16px;
+}
+
+/* === BUTTONS === */
+#buttonRow {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+button {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 26px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+}
+
+button:hover:enabled {
+    transform: translateY(-2px);
+}
+
+#startButton {
+    background: linear-gradient(135deg, #7d3cff, #b678ff);
+    color: white;
+}
+
+#restartButton {
+    background: linear-gradient(135deg, #3d3d52, #666687);
+    color: white;
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* === CARD STYLING 3D FLIP === */
+#cardArea {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 32px 0;
+    perspective: 1000px; /* 3D effect */
+}
+
+.card-container {
+    width: 180px;
+    height: 260px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 217, 125, 0.4);
+}
+
+.card-container.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Using a wrapper that rotates */
+.card-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+}
+
+.card-container.revealed .card-wrapper {
+    transform: rotateY(180deg);
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /* Hides the back of each face */
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card.front {
+    background: linear-gradient(135deg, #2b1b45, #171022);
+    border: 3px solid #b678ff;
+    color: #f7efff;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    font-size: 3rem;
+}
+
+.card.front::after {
+    content: "🔮";
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+/* Back face - rotated 180deg initially */
+.card.back {
+    background: linear-gradient(135deg, #7d3cff, #b678ff);
+    color: white;
+    font-size: 2rem;
+    transform: rotateY(180deg); /* Pre-rotated so it's correct when front flips */
+    border: 3px solid #ffd97d;
+}
+
+.card.back.safe {
+    background: linear-gradient(135deg, #00b894, #55efc4);
+    box-shadow: 0 0 20px rgba(0, 184, 148, 0.6);
+}
+
+.card.back.death {
+    background: linear-gradient(135deg, #d63031, #ff7675);
+    box-shadow: 0 0 20px rgba(214, 48, 49, 0.6);
+}

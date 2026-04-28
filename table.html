@@ -6,6 +6,65 @@
   <title>Table | UAT Degree Comparison</title>
   <meta name="description" content="Side-by-side comparison of all UAT degree objectives, plus a breakdown of Inline vs Internal vs External CSS.">
   <link rel="stylesheet" href="./style.css">
+  <style>
+    /* ===== Assignment iframe overlay (large centered window) ===== */
+    .iframe-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 9999;
+      padding: 20px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+    }
+    .iframe-overlay.active {
+      display: flex;
+    }
+    .iframe-window {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .iframe-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 16px;
+      background: rgba(30,30,30,0.95);
+      border-bottom: 1px solid #333;
+      flex-shrink: 0;
+    }
+    .iframe-back {
+      color: #0ea5e9;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .iframe-back:hover { opacity: 0.7; }
+    .iframe-title {
+      color: #ccc;
+      font-size: 0.85rem;
+    }
+    .iframe-wrapper {
+      flex: 1 1 auto;
+      background: #fff;
+      position: relative;
+    }
+    .iframe-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -16,10 +75,19 @@
     <a href="./index.html">Home</a><br>
     <a href="./boards.html">Boards</a><br>
     <a href="./table.html">Table</a><br>
+    <h2 style="margin-top: 1rem; font-size: 0.8em; color: var(--color-text-muted);">Assignments</h2>
+    <a href="CSC102-Assigment2.1/index.html" data-assignment="HTML & CSS Basics">HTML & CSS Basics</a><br>
+    <a href="CSC102Assignment-3.1-User-Experience/index.html" data-assignment="User Experience">User Experience</a><br>
+    <a href="CSC102Assignment-4.1-JavaScript-Game/game.html" data-assignment="JavaScript Game">JavaScript Game</a><br>
+    <a href="GPU-Compare/table.html" data-assignment="GPU Compare">GPU Compare</a><br>
+    <a href="Assignment-6.1-User-Input-Validation/strings.html" data-assignment="Input Validation">Input Validation</a><br>
+    <a href="Assignment-7.1-Event-Driven-Programming/index.html" data-assignment="Event-Driven Programming">Event-Driven Programming</a><br>
+    <a href="Palindrome-Checker-Sound/palindrome.html" data-assignment="Palindrome Checker">Palindrome Checker</a><br>
+    <a href="The-Hand-Mage-s-Deal-Final/game.html" data-assignment="Hand Mage's Deal">Hand Mage's Deal</a><br>
     <button class="theme-btn" aria-label="Toggle theme"></button>
   </nav>
 
-  <main>
+  <main id="pageContent">
     <section class="page-hero">
       <div class="wrap--sm">
         <h2>Degree Comparison</h2>
@@ -132,6 +200,68 @@
     </section>
   </main>
 
+  <!-- Assignment iframe overlay (hidden by default) -->
+  <div id="assignmentContainer" class="iframe-overlay">
+    <div class="iframe-window">
+      <div class="iframe-toolbar">
+        <a href="./index.html" class="iframe-back">← Back to Home</a>
+        <span class="iframe-title" id="assignmentTitle"></span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="color:#666;font-size:0.75rem;" id="assignmentUrl"></span>
+        </div>
+      </div>
+      <div class="iframe-wrapper">
+        <iframe id="assignmentFrame" src="" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="footer-grid">
+      <div>
+        <p><strong>Gleb Antonov</strong><br>
+        <br>
+        <h4>Contact</h4>
+        University of Advancing Technology<br>
+        2625 W. Baseline Road<br>
+        Tempe, AZ 85283-1056<br>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./boards.html">Boards</a></li>
+          <li><a href="./table.html">Table</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Assignments</h4>
+        <ul>
+          <li><a href="CSC102-Assigment2.1/index.html">HTML & CSS Basics</a></li>
+          <li><a href="CSC102Assignment-3.1-User-Experience/index.html">User Experience</a></li>
+          <li><a href="CSC102Assignment-4.1-JavaScript-Game/game.html">JavaScript Game</a></li>
+          <li><a href="GPU-Compare/table.html">GPU Compare</a></li>
+          <li><a href="Assignment-6.1-User-Input-Validation/strings.html">Input Validation</a></li>
+          <li><a href="Assignment-7.1-Event-Driven-Programming/index.html">Event-Driven Programming</a></li>
+          <li><a href="Palindrome-Checker-Sound/palindrome.html">Palindrome Checker</a></li>
+          <li><a href="The-Hand-Mage-s-Deal-Final/game.html">Hand Mage's Deal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Degrees</h4>
+        <ul>
+          <li><a href="./boards.html#robotics">Robotics Engineering</a></li>
+          <li><a href="./boards.html#ai">Artificial Intelligence</a></li>
+          <li><a href="./boards.html#security">Network Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 University of Advancing Technology &mdash; Tempe, AZ 85283-1056</p>
+      <p>UAT Campus: (602) 383-8228</p>
+    </div>
+  </footer>
+
   <script>
     // Theme toggle — reads/writes data-theme on <html>
     (function(){
@@ -143,9 +273,13 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       // Mark active nav link
-      var page = location.pathname.split('/').pop() || 'index.html';
+      var currentPath = location.pathname;
       document.querySelectorAll('nav a').forEach(function(a){
-        if (a.getAttribute('href') && a.getAttribute('href').indexOf(page) !== -1) a.classList.add('active');
+        var href = a.getAttribute('href');
+        if (!href) return;
+        try { var resolved = new URL(href, location.href).pathname; }
+        catch(e) { return; }
+        if (resolved === currentPath) a.classList.add('active');
       });
 
       // Theme toggle button
@@ -176,39 +310,33 @@
       } else {
         revEls.forEach(function(el){ el.classList.add('in'); });
       }
+
+      // Assignment iframe shell logic
+      var assignLinks = document.querySelectorAll('nav a[data-assignment]');
+      assignLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          var href = this.getAttribute('href');
+          var title = this.getAttribute('data-assignment');
+
+          // Show overlay
+          document.getElementById('assignmentContainer').classList.add('active');
+          document.getElementById('assignmentFrame').src = href;
+          document.getElementById('assignmentTitle').textContent = title;
+          document.getElementById('assignmentUrl').textContent = href;
+        });
+      });
+
+      // Back button logic
+      var backLink = document.querySelector('.iframe-back');
+      if (backLink) {
+        backLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('assignmentContainer').classList.remove('active');
+          document.getElementById('assignmentFrame').src = '';
+        });
+      }
     });
   </script>
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <p><strong>Gleb Antonov</strong><br>
-        <br>
-        <h4>Contact</h4>
-        University of Advancing Technology<br>
-        2625 W. Baseline Road<br>
-        Tempe, AZ 85283-1056<br>
-      </div>
-      <div>
-        <h4>Pages</h4>
-        <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./boards.html">Boards</a></li>
-          <li><a href="./table.html">Table</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Degrees</h4>
-        <ul>
-          <li><a href="./boards.html#robotics">Robotics Engineering</a></li>
-          <li><a href="./boards.html#ai">Artificial Intelligence</a></li>
-          <li><a href="./boards.html#security">Network Security</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 University of Advancing Technology &mdash; Tempe, AZ 85283-1056</p>
-      <p>UAT Campus: (602) 383-8228</p>
-    </div>
-  </footer>
 </body>
 </html>

@@ -1,0 +1,107 @@
+<!-- Created by Gleb Antonov -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Hand Mage's Deal</title>
+    <style>
+        /* Dark, mysterious theme */
+        body {
+            background-color: #1a1a1a;
+            color: #dcdcdc;
+            font-family: 'Georgia', serif; /* Fancy storybook font */
+            text-align: center;
+        }
+        #gameArea {
+            width: 70%;
+            margin: 0 auto;
+            border: 2px solid #555;
+            padding: 30px;
+            background-color: #2b2b2b;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000;
+        }
+        /* The Dialogue Box */
+        #dialogueBox {
+            background-color: #000;
+            color: #b19cd9; /* Spooky purple text */
+            padding: 20px;
+            border: 1px solid #b19cd9;
+            margin-bottom: 30px;
+            font-style: italic;
+            min-height: 60px;
+        }
+        /* Card Buttons */
+        .card-btn {
+            background-color: #444;
+            color: white;
+            padding: 40px 30px;
+            margin: 10px;
+            border: 2px solid #fff;
+            font-size: 24px;
+            cursor: pointer;
+            width: 120px;
+            transition: 0.3s;
+        }
+        .card-btn:hover {
+            background-color: #666;
+            transform: translateY(-5px); /* Moves up slightly on hover */
+        }
+        /* Start/Restart Button */
+        #actionBtn {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #800000; /* Blood red */
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔮 The Hand Mage's Deal 🔮</h1>
+
+    <div id="gameArea">
+        
+        <!-- Mage's Dialogue Area -->
+        <h3>The Hand Mage says:</h3>
+        <div id="dialogueBox">
+            "Approach, mortal. Three cards lie before you. Two bring doom... only one grants freedom. Choose wisely."
+        </div>
+
+        <!-- START GAME FORM -->
+        <form onsubmit="startGame(); return false;">
+            <button id="actionBtn" type="submit">Make the Deal (Start)</button>
+        </form>
+
+        <!-- CARD SELECTION AREA (Hidden at first) -->
+        <div id="cardTable" style="display:none;">
+            <p>Select your fate:</p>
+            
+            <!-- CARD 1 -->
+            <!-- We pass '1' to the function to know which card was clicked -->
+            <form onsubmit="pickCard(1); return false;" style="display:inline;">
+                <button class="card-btn" type="submit">Card 1</button>
+            </form>
+
+            <!-- CARD 2 -->
+            <form onsubmit="pickCard(2); return false;" style="display:inline;">
+                <button class="card-btn" type="submit">Card 2</button>
+            </form>
+
+            <!-- CARD 3 -->
+            <form onsubmit="pickCard(3); return false;" style="display:inline;">
+                <button class="card-btn" type="submit">Card 3</button>
+            </form>
+        </div>
+
+        <!-- Final Result Area -->
+        <h2 id="resultText"></h2>
+
+    </div>
+
+    <script src="code.js"></script>
+
+</body>
+</html>

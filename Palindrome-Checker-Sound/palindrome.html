@@ -1,0 +1,91 @@
+<!-- Created by Gleb Antonov (Firey) -->
+<!-- Tells the browser we are using HTML5 -->
+<!DOCTYPE html>
+
+<!-- Opening HTML tag -->
+<html lang="en">
+
+<!-- Head section holds metadata and links -->
+<head>
+
+    <!-- Sets character encoding so all text displays correctly -->
+    <meta charset="UTF-8">
+
+    <!-- Text that appears in the browser tab -->
+    <title>The Rune Mirror - Palindrome Checker</title>
+
+    <!-- Links our external CSS file for all styling -->
+    <link rel="stylesheet" href="palindrome.css">
+
+<!-- Closes the head section -->
+</head>
+
+<!-- Body section holds all visible content -->
+<body>
+
+    <!-- Main wrapper container for the whole page -->
+    <div id="pageWrapper">
+
+        <!-- Hidden audio element for the sound effect -->
+        <audio id="magicSound" src="magic_check.mp3"></audio>
+       
+        <!-- Creative Element 1: Decorative header with emoji rune symbols -->
+        <div id="headerBanner">
+            <!-- Decorative symbols on either side of the title -->
+            <span class="rune">🔮</span>
+            <!-- Main page title -->
+            <h1>The Rune Mirror</h1>
+            <!-- Decorative symbols on either side of the title -->
+            <span class="rune">🔮</span>
+        </div>
+
+        <!-- Subtitle description of what the app does -->
+        <p id="subtitle">Submit a word or phrase to the Mirror. It sees all directions.</p>
+
+        <!-- Main card container holding the form and results -->
+        <div id="mirrorCard">
+
+            <!-- THE FORM: one form, one button, all inputs inside // onsubmit calls our JS function and return false stops page reload -->
+            <form onsubmit="checkPalindrome(); return false;">
+
+                <!-- Label for the input box -->
+                <label for="userWord">Enter a word or phrase:</label><br>
+
+                <!-- Text input box where user types their word -->
+                <input type="text" id="userWord" placeholder="e.g. racecar, level, A man a plan a canal Panama">
+
+                <!-- The single submit button for the form -->
+                <button type="submit" id="checkBtn">✨ Check the Mirror ✨</button>
+
+            <!-- Closes the form -->
+            </form>
+
+            <!-- Area where validation warning messages appear (innerHTML requirement) -->
+            <div id="warningMsg"></div>
+
+            <!-- Area where the palindrome result message appears (innerHTML requirement) -->
+            <div id="resultMsg"></div>
+
+            <!-- Shows the cleaned and reversed string for transparency -->
+            <div id="detailMsg"></div>
+
+        <!-- Closes the mirror card -->
+        </div>
+
+        <!-- Creative Element 2: Animated decorative footer bar -->
+        <div id="footerBar">
+            <!-- Scrolling decorative text across the bottom -->
+            <marquee>~ The Mirror does not lie ~ The Mirror does not lie ~ The Mirror does not lie ~</marquee>
+        </div>
+
+    <!-- Closes the page wrapper -->
+    </div>
+
+    <!-- Links external JavaScript file so the logic runs -->
+    <script src="palindrome.js"></script>
+
+<!-- Closes the body -->
+</body>
+
+<!-- Closes the HTML document -->
+</html>
